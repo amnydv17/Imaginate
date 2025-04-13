@@ -6,13 +6,13 @@ Imaginate is a web application built with React and Vite for the frontend and No
 Here are some images related to the project:
 
 ### Main Screen
-![Main Screen](public/main.png)
+![Main Screen](./client/public/main.png)
 
 ### Signup/Login Screen
-![Signup/Login Screen](public/Signup-login.png)
+![Signup/Login Screen](./client/public/Signup-login.png)
 
 ### Design Overview
-![Design Overview](public/Des.png)
+![Design Overview](./client/public/Des.png)
 
 ## Features
 - Fast development with Vite's Hot Module Replacement (HMR)
