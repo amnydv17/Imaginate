@@ -2,6 +2,18 @@
 
 Imaginate is a web application built with React and Vite for the frontend and Node.js for the backend, designed to provide an interactive and engaging user experience. This project serves as a template for developing modern web applications using the latest technologies.
 
+## Images
+Here are some images related to the project:
+
+### Main Screen
+![Main Screen](public/main.png)
+
+### Signup/Login Screen
+![Signup/Login Screen](public/Signup-login.png)
+
+### Design Overview
+![Design Overview](public/Des.png)
+
 ## Features
 - Fast development with Vite's Hot Module Replacement (HMR)
 - ESLint integration for code quality
@@ -76,6 +88,8 @@ To run the application in development mode, follow these steps:
    node server.js
    ```
 3. The backend will be running on the specified port (default is usually 5000).
+
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
