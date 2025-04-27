@@ -7,58 +7,59 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const BuyCredit = () => {
-  const { user, setShowLogin , backendUrl, loadCreditsData, token} = useContext(AppContext);
+  const { user, setShowLogin, backendUrl, loadCreditsData, token } =
+    useContext(AppContext);
 
   const navigate = useNavigate();
 
-
-
   const initPay = async (order) => {
-     const options = {
+    const options = {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: order.currency,
-      name: "Credit Purchase",
+      name: "Credits Purchase",
       description: "Purchase credits",
-      order_id:order.id,
+      order_id: order.id,
       receipt: order.receipt,
       handler: async (response) => {
         try {
-          const {data} = await axios.post(backendUrl + '/api/user/varify-razor',response,
-            {headers:{token}}
-          )
-          if(data.success){
+          const { data } = await axios.post(
+            backendUrl + "/api/user/varify-razor",
+            response,
+            { headers: { token } }
+          );
+          if (data.success) {
             loadCreditsData();
-            navigate('/')
-            toast.success('Credit Added')
+            navigate("/");
+            toast.success("Credit Added");
           }
-          
         } catch (error) {
-          toast.error(error.message)
+          toast.error(error.message);
         }
-      }
-     }
-     const rzp = new window.Razorpay(options);
-     rzp.open();
-  }
+      },
+    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
 
   const paymentRazorpay = async (planId) => {
     try {
-      if(!user){
-        setShowLogin(true)
+      if (!user) {
+        setShowLogin(true);
       }
-      const data = await axios.post(backendUrl + '/api/user/pay-razor', {planId},
-        {headers:{token}})
-      
-      if(data.success){
-        initPay(data.order)
-      }
+      const { data } = await axios.post(
+        backendUrl + "/api/user/pay-razor",
+        { planId },
+        { headers: { token } }
+      );
 
+      if (data.success) {
+        initPay(data.order);
+      }
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
-  }
-
+  };
 
   return (
     <motion.div
@@ -89,7 +90,7 @@ const BuyCredit = () => {
               {item.credits} credits
             </p>
             <button
-              onClick={()=>paymentRazorpay(item.id)}
+              onClick={() => paymentRazorpay(item.id)}
               className="w-full bg-gray-800 text-white mt-8 text-sm rounded-md py-2.5 min-w-52"
             >
               {user ? "Purchase" : "Get Started"}
