@@ -1,6 +1,6 @@
 import userModel from "../models/userModel.js";
 import transactionModel from "../models/transactionModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"; // Import the JWT library for token authentication
 import razorpay from 'razorpay'; // Import the Razorpay library for payment gateway integration
 
