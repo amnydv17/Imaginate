@@ -3,7 +3,7 @@
  import 'dotenv/config'
  import connectDB from './config/mongodb.js';
  import userRouter from './routes/userRoutes.js';
-import imageRouter from './routes/imageROutes.js';
+import imageRouter from './routes/imageRoutes.js';
 
 // creating port
  const PORT = process.env.PORT || 4000;
